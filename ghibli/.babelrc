@@ -1,0 +1,22 @@
+{
+    "presets": [
+        "react-app"
+    ],
+    "plugins": [
+        [
+            "import",
+            {
+                "libraryName": "react-bootstrap",
+                "libraryDirectory": "",
+                "style": false,
+                "camel2DashComponentName": false
+            }
+        ],
+        [
+            "babel-plugin-root-import",
+            {
+                "rootPathSuffix": "src"
+            }
+        ]
+    ]
+}

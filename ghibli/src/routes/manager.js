@@ -3,7 +3,6 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import urlJoin from 'url-join';
 
-import store from '~/redux/store';
 
 export const getRoutesArray = route => {
     if (route.group) {
@@ -45,12 +44,3 @@ export const findParentGroups = (routeThree, route) => {
     return path;
 };
 
-export const hasRoutePermission = route => {
-    if (!Array.isArray(route.permissions)) {
-        return true;
-    }
-    return route.permissions.some(permission => {
-        const { can, an } = permission;
-        return store.getState().ability.can(can, an);
-    });
-};
