@@ -1,0 +1,48 @@
+.container {
+    height: 100vh;
+    display: flex;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    width: 50%;
+    height: 100vh;
+    position: relative;
+    background-color: #b2d4ff;
+}
+
+.squirtle {
+    right: 20px;
+    top: 20px;
+    position: absolute;
+}
+
+.pokedexLogo {
+    width: 387px;
+    margin-bottom: 38px;
+}
+
+.input {
+    max-width: 426px;
+}
+
+.pikachu {
+    left: 20px;
+    bottom: 20px;
+    position: absolute;
+}
+
+.rightSide {
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    background-color: #fffafa;
+}
