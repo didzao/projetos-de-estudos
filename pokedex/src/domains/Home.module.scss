@@ -1,0 +1,112 @@
+.squirtle {
+    right: 20px;
+    top: 20px;
+    position: absolute;
+}
+
+.pokedexLogo {
+    width: 387px;
+    margin-bottom: 38px;
+}
+
+.input {
+    max-width: 426px;
+}
+
+.pikachu {
+    left: 20px;
+    bottom: 20px;
+    position: absolute;
+}
+
+.rightLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 125px;
+
+    h1 {
+        font-size: 56px;
+        line-height: 54px;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 38px;
+        line-height: 46px;
+    }
+}
+
+.infoText {
+    font-size: 24px;
+    line-height: 32px;
+    width: 501px;
+    align-self: center;
+    margin: 42px 0px;
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 504px;
+    height: 267px;
+    padding: 51px 49px;
+    border-radius: 25px;
+    background-color: rgba($color: #ffcb05, $alpha: 0.6);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.labelInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    span {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500;
+    }
+
+    p {
+        font-size: 38px;
+        line-height: 46px;
+        font-weight: bold;
+    }
+}
+
+.pokeImage {
+    right: 20px;
+    bottom: 20px;
+    position: absolute;
+}
+
+.tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    background-color: cornflowerblue;
+    width: 110px;
+    height: 28px;
+    margin-top: 10px;
+
+    span {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 600;
+    }
+}
