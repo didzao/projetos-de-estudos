@@ -15,34 +15,13 @@
     background-color: #b2d4ff;
 }
 
-.squirtle {
-    right: 20px;
-    top: 20px;
-    position: absolute;
-}
-
-.pokedexLogo {
-    width: 387px;
-    margin-bottom: 38px;
-}
-
-.input {
-    max-width: 426px;
-}
-
-.pikachu {
-    left: 20px;
-    bottom: 20px;
-    position: absolute;
-}
-
 .rightSide {
     width: 50%;
-
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    // justify-content: space-around;
+    // align-items: center;
     height: 100vh;
     background-color: #fffafa;
 }
