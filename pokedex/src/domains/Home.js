@@ -31,7 +31,9 @@ const Home = () => {
 
     const [ability, setPokeAbility] = useState();
 
-    const [pokeType, setPokeType] = useState(initialState)
+    const [pokeType, setPokeType] = useState();
+
+    const [pokeImage, setPokeImage] = useState();
 
     const { Search } = Input;
 
@@ -51,6 +53,8 @@ const Home = () => {
 
     const onSearch = useCallback(async (value) => {
 
+        setResponseInfo(undefined);
+
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${value}`);
         const responseBody = await response.json();
 
@@ -60,9 +64,9 @@ const Home = () => {
         } else {
             setInitialState(false)
             setResponseInfo(responseBody);
-            setPokeAbility(responseBody?.abilities[0]?.ability.name);
-            setPokeType(responseBody?.types[0]?.type.name)
-            console.log([responseBody]);
+            setPokeAbility(responseBody?.abilities[0]?.ability?.name);
+            setPokeType(responseBody?.types[0]?.type?.name);
+            setPokeImage(responseBody?.sprites?.other["official-artwork"]["front_default"]);
         }
     }, []);
 
@@ -128,16 +132,16 @@ const Home = () => {
                     </div>
 
                     <div className={styles.row}>
-                        <PokeTag label="Tipo" pokeType={pokeType} />
-                        <PokeTag label="Fraqueza" tagType="strong" pokeType={pokeType} />
-                        <PokeTag label="Forte contra" tagType="weakness" pokeType={pokeType} />
+                        <PokeTag label="Tipo" pokeType="electric" />
+                        <PokeTag label="Fraqueza" tagType="strong" pokeType="electric" />
+                        <PokeTag label="Forte contra" tagType="weakness" pokeType="electric" />
                     </div>
 
                 </div>
 
                 <div className={styles.pokeImage}>
                     <img
-                        src={pikachu}
+                        src={pokeImage}
                         alt="pikachu"
                         width={323}
                     />
