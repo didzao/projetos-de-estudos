@@ -1,12 +1,10 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import SplitScreen from '../components/SplitScreen';
-import styles from "./Home.module.scss";
 import api from '../services/api';
-
 import { Input } from 'antd';
-
 import logo from "../assets/pokedex-logo.png";
 import PokeTag from '../components/PokeTag';
+import styles from "./Home.module.scss";
 
 const LabelInfo = ({ label, info }) => {
     return (
@@ -22,8 +20,6 @@ const LabelInfo = ({ label, info }) => {
 };
 
 const Home = () => {
-
-    const pikachu = require('../assets/pikachu.png').default;
 
     const [initialState, setInitialState] = useState(true);
 
@@ -77,16 +73,19 @@ const Home = () => {
 
     const renderLeftSide = () => {
         return (
-            <>
+            <div className={styles.leftContainer}>
                 <div className={styles.squirtle}>
                     <img
                         src={require('../assets/squirtle.png').default}
                         alt="squirtle"
-                        width={323}
                     />
                 </div>
 
-                <img src={logo} className={styles.pokedexLogo} alt="logo" />
+                <img
+                    src={logo}
+                    className={styles.pokedexLogo}
+                    alt="Pokédex Logo"
+                />
 
                 <Search
                     placeholder="Digite aqui o pokémon"
@@ -100,16 +99,16 @@ const Home = () => {
                     <img
                         src={require('../assets/pikachu.png').default}
                         alt="pikachu"
-                        width={323}
                     />
                 </div>
-            </>
+            </div>
         );
     };
 
     const renderPokeInfo = () => {
+
         return (
-            <>
+            <div className={styles.rightContainer}>
                 <div className={styles.headerContainer}>
                     <h1>
                         {pokeInfo?.name}
@@ -126,15 +125,15 @@ const Home = () => {
 
                 <div className={styles.cardContainer}>
                     <div className={styles.row}>
-                        <LabelInfo label="Peso" info={`${pokeInfo?.weight} kg`} />
-                        <LabelInfo label="Altura" info={`0.${pokeInfo?.height} m`} />
+                        <LabelInfo label="Peso" info={`${(pokeInfo?.weight)/10} kg`} />
+                        <LabelInfo label="Altura" info={`${(pokeInfo?.height)/10} m`} />
                         <LabelInfo label="Habilidade" info={ability} />
                     </div>
 
                     <div className={styles.row}>
-                        <PokeTag label="Tipo" pokeType="electric" />
-                        <PokeTag label="Fraqueza" tagType="strong" pokeType="electric" />
-                        <PokeTag label="Forte contra" tagType="weakness" pokeType="electric" />
+                        <PokeTag label="Tipo" pokeType={pokeType} />
+                        <PokeTag label="Fraqueza" tagType="strong" pokeType={pokeType} />
+                        <PokeTag label="Forte contra" tagType="weakness" pokeType={pokeType} />
                     </div>
 
                 </div>
@@ -142,11 +141,10 @@ const Home = () => {
                 <div className={styles.pokeImage}>
                     <img
                         src={pokeImage}
-                        alt="pikachu"
-                        width={323}
+                        alt="Imagem do pokemon buscado"
                     />
                 </div>
-            </>
+            </div>
         );
     }
 
@@ -158,7 +156,6 @@ const Home = () => {
                     <img
                         src={require('../assets/who-pokemon.png').default}
                         alt="Logo quem é esse pokémon"
-                        width={550}
                     />
                 </div>
             );

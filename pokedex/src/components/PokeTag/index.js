@@ -1,12 +1,10 @@
-import React from 'react';
-
-import useClassNames from "../../hooks/use-classnames";
+import React, { useCallback, useMemo } from 'react';
 
 import styles from "./styles.module.scss";
 
 const PokeTag = ({ pokeType, tagType, label }) => {
 
-    const getPokeType = () => {
+    const getPokeType = useCallback(() => {
         let typeTagStyle;
         let typeName;
 
@@ -168,7 +166,17 @@ const PokeTag = ({ pokeType, tagType, label }) => {
             typeTagStyle, typeName, pokeWeak,
             pokeWeakStyle, pokeStrong, pokeStrongStyle,
         };
-    };
+    }, [pokeType]);
+
+    const tagStyles = useMemo(() => {
+        if (tagType === "weakness") {
+            return getPokeType().pokeWeakStyle;
+        } else if (tagType === "strong") {
+            return getPokeType().pokeStrongStyle;
+        } else {
+            return getPokeType().typeTagStyle;
+        }
+    }, [getPokeType, tagType])
 
     const renderTagStyle = () => {
         if (tagType === "weakness") {
@@ -195,7 +203,7 @@ const PokeTag = ({ pokeType, tagType, label }) => {
             <span>
                 {label}
             </span>
-            <div className={useClassNames(renderTagStyle())}>
+            <div className={tagStyles}>
                 <span>
                     {renderTagLabel()}
                 </span>

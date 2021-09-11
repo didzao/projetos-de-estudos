@@ -1,7 +1,21 @@
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
 .squirtle {
     right: 20px;
     top: 20px;
     position: absolute;
+
+    img {
+        width: 323px;
+    }
 }
 
 .pokedexLogo {
@@ -17,12 +31,27 @@
     left: 20px;
     bottom: 20px;
     position: absolute;
+
+    img {
+        width: 323px;
+    }
 }
 
 .rightLogo {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+
+    img {
+        width: 550px;
+    }
+}
+
+.rightContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
 }
 
@@ -85,6 +114,7 @@
         font-size: 38px;
         line-height: 46px;
         font-weight: bold;
+        text-transform: capitalize;
     }
 }
 
@@ -92,21 +122,75 @@
     right: 20px;
     bottom: 0px;
     position: absolute;
+
+    img {
+        width: 323px;
+    }
 }
 
-.tag {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 25px;
-    background-color: cornflowerblue;
-    width: 110px;
-    height: 28px;
-    margin-top: 10px;
+@media (max-width: 1366px) {
+    .pokeImage {
+        img {
+            width: 200px;
+        }
+    }
 
-    span {
-        font-size: 14px;
-        line-height: 22px;
-        font-weight: 600;
+    .squirtle {
+        img {
+            width: 200px;
+            top: 10px;
+        }
+    }
+
+    .pikachu {
+        img {
+            width: 200px;
+            bottom: 10px;
+        }
+    }
+
+    .rightLogo {
+        img {
+            width: 400px;
+        }
+    }
+
+    .headerContainer {
+        margin-top: -100px;
+
+        h1 {
+            font-size: 38px;
+            line-height: 65px;
+            margin-bottom: -5px;
+        }
+
+        p {
+            font-size: 24px;
+            line-height: 40px;
+        }
+    }
+
+    .infoText {
+        font-size: 18px;
+        line-height: 30px;
+        margin: 22px 0px;
+    }
+
+    .cardContainer {
+        width: 504px;
+        height: 200px;
+        padding: 30px 49px;
+    }
+
+    .labelInfo {
+        span {
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        p {
+            font-size: 24px;
+            line-height: 40px;
+        }
     }
 }
