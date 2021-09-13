@@ -31,40 +31,54 @@ const Home = () => {
 
     const [pokeImage, setPokeImage] = useState();
 
+    const [hasError, setHasError] = useState(false);
+
     const { Search } = Input;
-
-    // const onSearch = useCallback(async (value) => {
-    //     // console.log(value);
-
-    //     try {
-    //         const response = await api.get(`${value}`);
-
-    //         setResponseInfo(response.data);
-
-    //     } catch (exception) {
-    //         return console.log(exception);
-    //     }
-
-    // }, []);
 
     const onSearch = useCallback(async (value) => {
 
+        setHasError(false);
         setResponseInfo(undefined);
 
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${value}`);
-        const responseBody = await response.json();
-
-
-        if (!response.ok) {
-            console.log('ERRO:', response);
-        } else {
+        try {
+            const response = await api.get(`pokemon/${value}`);
+            const { data } = response;
             setInitialState(false)
-            setResponseInfo(responseBody);
-            setPokeAbility(responseBody?.abilities[0]?.ability?.name);
-            setPokeType(responseBody?.types[0]?.type?.name);
-            setPokeImage(responseBody?.sprites?.other["official-artwork"]["front_default"]);
+            setResponseInfo(data);
+            setPokeAbility(data?.abilities[0]?.ability?.name);
+            setPokeType(data?.types[0]?.type?.name);
+            setPokeImage(data?.sprites?.other["official-artwork"]["front_default"]);
+
+        } catch (exception) {
+            setHasError(true);
+            return console.log(exception);
         }
+
     }, []);
+
+    // const onSearch = useCallback(async (value) => {
+    //     setHasError(false);
+    //     setResponseInfo(undefined);
+
+    //     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${value}`);
+    //     const responseBody = await response.json();
+
+    //     if (response.status === 404) {
+    //         console.log("ssss")
+    //     }
+
+    //     if (!response.ok) {
+    //         setHasError(true);
+    //         console.log('ERRO:', response);
+
+    //     } else {
+    //         setInitialState(false)
+    //         setResponseInfo(responseBody);
+    //         setPokeAbility(responseBody?.abilities[0]?.ability?.name);
+    //         setPokeType(responseBody?.types[0]?.type?.name);
+    //         setPokeImage(responseBody?.sprites?.other["official-artwork"]["front_default"]);
+    //     }
+    // }, []);
 
     const pokeInfo = useMemo(() => {
         return responseInfo === undefined ? {} : responseInfo;
@@ -88,7 +102,7 @@ const Home = () => {
                 />
 
                 <Search
-                    placeholder="Digite aqui o pokémon"
+                    placeholder="Digite aqui o nome ou número do pokémon"
                     enterButton
                     size="large"
                     onSearch={onSearch}
@@ -125,8 +139,8 @@ const Home = () => {
 
                 <div className={styles.cardContainer}>
                     <div className={styles.row}>
-                        <LabelInfo label="Peso" info={`${(pokeInfo?.weight)/10} kg`} />
-                        <LabelInfo label="Altura" info={`${(pokeInfo?.height)/10} m`} />
+                        <LabelInfo label="Peso" info={`${(pokeInfo?.weight) / 10} kg`} />
+                        <LabelInfo label="Altura" info={`${(pokeInfo?.height) / 10} m`} />
                         <LabelInfo label="Habilidade" info={ability} />
                     </div>
 
@@ -159,11 +173,35 @@ const Home = () => {
                     />
                 </div>
             );
-        } else {
-            return (
-                renderPokeInfo()
-            );
         }
+
+        if (hasError) {
+            return (
+                <div className={styles.notFound}>
+                    <img
+                        src={require('../assets/ooops.png').default}
+                        alt="Logo quem é esse pokémon"
+                    />
+                    <img
+                        src={require('../assets/pikachu_search.png').default}
+                        alt="Logo quem é esse pokémon"
+                    />
+
+                    <p>
+                        Parece que a pokédex está desatualizada!
+                    </p>
+                    <span>
+                        (Ou então o nome foi digitado com algum erro)
+                    </span>
+                </div>
+            )
+
+        }
+
+        return (
+            renderPokeInfo()
+        );
+
 
     }
 
