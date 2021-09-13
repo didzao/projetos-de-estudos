@@ -29,11 +29,13 @@
 .bug {
     @extend .tag;
     background-color: #719f3e;
+    color: white;
 }
 
 .dragon {
     @extend .tag;
     background-color: #f06d56;
+    color: white;
 }
 
 .fairy {
@@ -44,11 +46,13 @@
 .fire {
     @extend .tag;
     background-color: #fc7d23;
+    color: white;
 }
 
 .ghost {
     @extend .tag;
     background-color: #7b62a2;
+    color: white;
 }
 
 .ground {
@@ -64,6 +68,7 @@
 .psychic {
     @extend .tag;
     background-color: #f365b8;
+    color: white;
 }
 
 .steel {
@@ -74,6 +79,7 @@
 .dark {
     @extend .tag;
     background-color: #707070;
+    color: white;
 }
 
 .electric {
@@ -84,6 +90,7 @@
 .fighting {
     @extend .tag;
     background-color: #d56722;
+    color: white;
 }
 
 .flying {
@@ -104,19 +111,23 @@
 .poison {
     @extend .tag;
     background-color: #b87ec8;
+    color: white;
 }
 
 .rock {
     @extend .tag;
     background-color: #a28c1f;
+    color: white;
 }
 
 .water {
     @extend .tag;
     background-color: #4592c3;
+    color: white;
 }
 
 .none {
     @extend .tag;
     background-color: #e5e5e5;
+    color: #c4c4c4;
 }

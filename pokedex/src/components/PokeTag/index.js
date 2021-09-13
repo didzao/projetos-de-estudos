@@ -176,17 +176,7 @@ const PokeTag = ({ pokeType, tagType, label }) => {
         } else {
             return getPokeType().typeTagStyle;
         }
-    }, [getPokeType, tagType])
-
-    const renderTagStyle = () => {
-        if (tagType === "weakness") {
-            return getPokeType().pokeWeakStyle;
-        } else if (tagType === "strong") {
-            return getPokeType().pokeStrongStyle;
-        } else {
-            return getPokeType().typeTagStyle;
-        }
-    }
+    }, [getPokeType, tagType]);
 
     const renderTagLabel = () => {
         if (tagType === "weakness") {
@@ -196,7 +186,7 @@ const PokeTag = ({ pokeType, tagType, label }) => {
         } else {
             return getPokeType().typeName;
         }
-    }
+    };
 
     return (
         <div className={styles.labelInfo}>
@@ -210,6 +200,6 @@ const PokeTag = ({ pokeType, tagType, label }) => {
             </div>
         </div>
     )
-}
+};
 
 export default PokeTag;
