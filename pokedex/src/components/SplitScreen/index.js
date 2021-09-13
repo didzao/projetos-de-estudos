@@ -8,9 +8,7 @@ const SplitScreen = ({ leftSide, rightSide }) => {
         <div className={styles.container}>
 
             <div className={styles.leftSide}>
-
                 {leftSide}
-
             </div>
 
             <div className={styles.rightSide}>
