@@ -1,0 +1,27 @@
+.container {
+    height: 100vh;
+    display: flex;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    width: 50%;
+    height: 100vh;
+    position: relative;
+    background-color: #b2d4ff;
+}
+
+.rightSide {
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-around;
+    // align-items: center;
+    height: 100vh;
+    background-color: #fffafa;
+}
